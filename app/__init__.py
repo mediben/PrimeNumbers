@@ -1,9 +1,15 @@
-from views import get_primes
+from flask import Flask, request, jsonify
+from .views import get_primes
 
-if __name__ == "__main__":
-    a = 1200
-    if isinstance(a, (int, long)) :
-        res = get_primes(a+1)
-        print(res)
-    else:
-        print('Please provide integer number')
+application = Flask(__name__)
+
+@application.route('/primes',  methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        data = request.get_json(force=True) 
+        res = get_primes(data)
+        return jsonify(msg=res)
+    
+    elif request.method == 'GET':
+        pass
+        

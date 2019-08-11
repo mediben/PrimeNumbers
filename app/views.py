@@ -1,7 +1,5 @@
-#import time
 
 def get_primes(n):
-    #start = time()
     nonprimes = n * [False]
     count = 0
     nonprimes[0] = nonprimes[1] = True
@@ -12,7 +10,5 @@ def get_primes(n):
             count += 1
             for j in range(2*i, n, i):
                 nonprimes[j] = True
-    #stop = time()
-    #print("Count =", count, "Elapsed time:", stop - start, "seconds")
     return prime_numbers
     
