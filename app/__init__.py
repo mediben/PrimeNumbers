@@ -24,7 +24,8 @@ def index():
                             per_page=per_page,
                             pagination=pagination,
                             )
-                            #per_page = current.app.config.get(per_page_name.upper(), 10)
+                            #Make sure to edit get_page_args imported from library to following 
+                            #per_page = current.app.config.get(per_page_name.upper(), 100)
         else:
             return render_template('error.json'), 500, {'Content-Type': 'application/json'}
     
